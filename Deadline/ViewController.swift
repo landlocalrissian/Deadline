@@ -9,11 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var clicksCount: UILabel!
+    
+    @IBOutlet weak var buttonClick: UIButton!
+    var clicks = 0 {
+        didSet {
+            clicksCount.text = "Clicks: \(clicks)"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        buttonClick.layer.cornerRadius = 23
     }
 
-
+    @IBAction func buttonActionClick(_ sender: Any) {
+        clicks = clicks + 1
+    }
 }
 
